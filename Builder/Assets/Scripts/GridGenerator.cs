@@ -2,41 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class generates the grid system, the size of this can be set in the inspector. 
+/// </summary>
+
 namespace Builder
 {
     public class GridGenerator : MonoBehaviour
     {
-        public int gridSize = 20;
-        public float offset = 0.2f; 
         public GameObject gridSquare; 
         public GameObject plane;
-        public GameObject gridParent; 
+        public GameObject gridParent;
+
+        [SerializeField] private int gridSize = 20;
+        [SerializeField] private float planeOffset = 0.2f;
+
         private float planeSize;
         private float gridCountXY;
         private float gridSpacing;
-
         private bool gridGenerate;
-
-        private Transform[] gridTrans; 
+        private ArrayList gridcellArray = new ArrayList();
 
         public void Awake()
         {
             gridSpacing = 1f;
             SetPlaneSize();
-            DrawGrid();
+            if (!DrawGrid())
+            {
+                DrawGrid();
+            }
         }
 
         public Vector3 GetNearestPointOnGrid(Vector3 position)
         {
             int xCount = Mathf.RoundToInt(position.x / gridSpacing);
-            int yCount = Mathf.RoundToInt(position.y / gridSpacing);
             int zCount = Mathf.RoundToInt(position.z / gridSpacing);
-            Vector3 result = new Vector3((float)xCount * gridSpacing, (float)yCount * gridSpacing, (float)zCount * gridSpacing);
+            Vector3 result = new Vector3((float)xCount * gridSpacing, 0, (float)zCount * gridSpacing);
             result += transform.position;
             return result;
         }
 
-        public bool DrawGrid()
+        public bool DrawGrid()//this method draws the grid using the Vector3 method to iterate across the x and z axis. GO are added to an array list for later reference
         {
             for (float x = 0; x < gridSize; x += gridSpacing)
             {
@@ -45,16 +51,26 @@ namespace Builder
                     Vector3 point = GetNearestPointOnGrid(new Vector3(x, 0f, z));
                     GameObject go = Instantiate(gridSquare,new Vector3(point.x, 0, point.z), Quaternion.identity);
                     go.transform.SetParent(gridParent.transform, true);
+                    GridCellManager gsm = new GridCellManager();
+                    gsm.location = new Vector3(point.x, 0, point.z);
+                    gsm.tile = go;
+                    gridcellArray.Add(gsm);
                 }
             }
-            gridParent.transform.position = new Vector3(-(gridSize+offset)/2,0, -(gridSize + offset) / 2);
+            gridParent.transform.position = new Vector3(-(gridSize /2) + planeOffset, 0, -(gridSize/ 2) + planeOffset);
+            #region list locations of tiles
+            //foreach (GridCellManager gsm in gridcellArray)
+            //{
+            //    Debug.Log(gsm.location + ": location " + gsm.tile.name + "tile");
+            //}
+            #endregion
             return (true);
         }
 
-        private void SetPlaneSize()
+        private void SetPlaneSize() // plane scales dependent on number of tiles
         {
             planeSize = gridSize / 10;
-            plane.transform.localScale += new Vector3(planeSize+offset, 0, planeSize+offset);
+            plane.transform.localScale += new Vector3(planeSize+ planeOffset, 0, planeSize+ planeOffset);
         }
     }
 }
