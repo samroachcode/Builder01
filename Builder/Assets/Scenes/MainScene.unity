@@ -185,6 +185,7 @@ Transform:
   m_Children:
   - {fileID: 190850121}
   - {fileID: 2069983947}
+  - {fileID: 2132943658}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -408,6 +409,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 65273082084308796, guid: 505aa0e9c039ec54fb02f37aea33033a,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 505aa0e9c039ec54fb02f37aea33033a, type: 2}
   m_IsPrefabParent: 0
@@ -449,6 +455,11 @@ Prefab:
     - target: {fileID: 4516967249287340, guid: f09cc80f57231e045afd4842eda83b91, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 65434653123063744, guid: f09cc80f57231e045afd4842eda83b91,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f09cc80f57231e045afd4842eda83b91, type: 2}
@@ -588,3 +599,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anObject: {fileID: 528196056}
   anObjCollider: {fileID: 528196058}
+--- !u!1 &2132943657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2132943658}
+  - component: {fileID: 2132943659}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2132943658
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2132943657}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 227984588}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2132943659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2132943657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f83659be7febe44fa1f742f59ba5f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
