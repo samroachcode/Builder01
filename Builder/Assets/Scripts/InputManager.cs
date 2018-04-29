@@ -6,7 +6,10 @@ namespace Builder
 {
     public class InputManager : MonoBehaviour
     {
-        public float tapDurection = 0.1f; 
+        public float tapDurection = 0.1f;
+
+        [SerializeField] private BuildingGridInteractionManager m_BuildingGridInteractionManager; 
+
         private bool userInput;
         private GameObject buildingSelected;
         private float inputTimer; 
@@ -46,7 +49,7 @@ namespace Builder
             }
             if (userInput && buildingSelected != null && inputTimer >= tapDurection)
             {
-                Drag();
+                m_BuildingGridInteractionManager.Drag(buildingSelected, Input.mousePosition);
             }
             if (!Input.GetMouseButton(0) && !ResetInput())
                 ResetInput(); 
@@ -68,12 +71,6 @@ namespace Builder
         private void Tap()
         {
             //Show UI
-        }
-
-        private void Drag()
-        {
-            Vector3 inputWorldPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 29));
-            buildingSelected.transform.position = inputWorldPos;
         }
 
         private bool ResetInput()

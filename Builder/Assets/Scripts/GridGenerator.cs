@@ -21,11 +21,11 @@ namespace Builder
         private float gridCountXY;
         private float gridSpacing;
         private bool gridGenerate;
-        private ArrayList gridcellArray = new ArrayList();
+        public ArrayList gridcellArray = new ArrayList(); // it would be better if this was private or read only
 
         public void Awake()
         {
-            gridSpacing = 1f;
+            gridSpacing = 1.1f;
             SetPlaneSize();
             if (!DrawGrid())
             {
@@ -52,8 +52,9 @@ namespace Builder
                     GameObject go = Instantiate(gridSquare,new Vector3(point.x, 0, point.z), Quaternion.identity);
                     go.transform.SetParent(gridParent.transform, true);
                     GridCellManager gsm = new GridCellManager();
-                    gsm.location = new Vector3(point.x, 0, point.z);
+                    gsm.location = new Vector3(point.x - (gridSize / 2) + planeOffset, 0, point.z - (gridSize / 2) + planeOffset);
                     gsm.tile = go;
+                    go.name = "Tile " + x + ", z" + z;
                     gridcellArray.Add(gsm);
                 }
             }
