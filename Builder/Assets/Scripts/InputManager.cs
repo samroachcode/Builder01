@@ -12,13 +12,14 @@ namespace Builder
 
         private bool userInput;
         private GameObject buildingSelected;
-        private float inputTimer; 
-
+        private float inputTimer;
+        private GameObject buildingCanvas;
         private void Awake()
         {
             buildingSelected = null; 
             userInput = false;
-            inputTimer = 0; 
+            inputTimer = 0;
+            buildingCanvas = null; 
         }
 
         private void Update() 
@@ -64,13 +65,21 @@ namespace Builder
                 if (hit.transform.tag == "Building" && buildingSelected == null)
                 {
                     buildingSelected = hit.transform.gameObject;
+                    
                 }
             }
         }
 
         private void Tap()
         {
-            //Show UI
+            //if (buildingSelected != null)
+            //{
+            //    buildingCanvas = buildingSelected.transform.Find("Canvas");
+            //}
+            //if (!buildingCanvas.enabled)
+            //    buildingCanvas.enabled = true;
+            //else
+            //    buildingCanvas.enabled = false;
         }
 
         private bool ResetInput()

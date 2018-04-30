@@ -289,7 +289,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BuildingGridInteractionManager.cs" />
+    <Compile Include="Assets\Scripts\Building.cs" />
+    <Compile Include="Assets\Scripts\BuildingGridInteractionManager.cs" />
+    <Compile Include="Assets\Scripts\BuildingUIManager.cs" />
     <Compile Include="Assets\Scripts\CameraManager.cs" />
     <Compile Include="Assets\Scripts\GridCellManager.cs" />
     <Compile Include="Assets\Scripts\GridGenerator.cs" />
