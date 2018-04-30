@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 namespace Builder
 {
-    public enum BuildingType { Unique, Common }
+    //public enum BuildingType { Unique, Common }
     public class Building : MonoBehaviour
     {
         //public int level;
         //public float cost; 
         //public GameObject buildingObject;
-        public Image inventoryImage;
-        public BuildingType buildingType;
-        private bool onMap;
+        //public Image inventoryImage;
+        //public BuildingType buildingType;
+        //private bool onMap;
     }
 }

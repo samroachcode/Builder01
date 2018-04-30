@@ -7,9 +7,8 @@ namespace Builder
 {
     public class Inventory : MonoBehaviour
     {
-        //ui element list
+        public List<BuildingDataclass> inInventory; // this is useful as building manager remains permanent where this likely will scale
         
-        public List<BuildingDataclass> inInventory;
         public Canvas canvas;
         public Image imgPrefab;
 
@@ -18,18 +17,21 @@ namespace Builder
         private void Awake()
         {
             canvas = GetComponent<Canvas>();
-            if(m_BuildingManager.GenerateInventory()) // search grid save for removed objects
-                GenerateUI();
+            GenerateUI();
         }
 
         void GenerateUI()
         {
-            foreach (BuildingDataclass building in inInventory)
-            {
-                var thisBuilding = Instantiate(imgPrefab,this.transform);
-                //imgPrefab = building.Gameobject.
-                Debug.Log("new prefab");
-            }   
+            foreach (BuildingDataclass building in inInventory)// fix overloop
+                for (int i = 0; i < inInventory.Count; i++)
+                {
+                    if(imgPrefab != null)
+                {
+                        var thisBuilding = Instantiate(imgPrefab, this.transform);
+                        imgPrefab = building.inventoryImage;
+                    }
+                    Debug.Log("new prefab");
+                }
         }
 
 

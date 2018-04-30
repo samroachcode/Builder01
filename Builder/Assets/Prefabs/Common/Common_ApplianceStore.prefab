@@ -38,6 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4656358315281540}
   - component: {fileID: 114611867103294396}
+  - component: {fileID: 114003706734650344}
   m_Layer: 0
   m_Name: Common_ApplianceStore
   m_TagString: Untagged
@@ -133,6 +134,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114003706734650344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1992529696500576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9665b69697fac4f9dade41ec5865bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 1992529696500576}
+  maxOwnership: 5
+  inventoryImage: {fileID: 0}
+  buildingType: 1
 --- !u!114 &114611867103294396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,5 +160,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea84d71ce598e6c409ba21f9dd965194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryImage: {fileID: 0}
-  buildingType: 0

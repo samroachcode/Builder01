@@ -7,18 +7,23 @@ namespace Builder
     public class BuildingManager : MonoBehaviour
     {
         [SerializeField] private BuildingDataclass[] buildings;
+        //[SerializeField] private Building[] buildingInfo;
         [SerializeField] private Inventory inventory; 
 
         private void Awake()
         {
-            GenerateInventory(); 
+            //buildingInfo = new Building[buildings.Length];
+            if(!GenerateInventory())
+                GenerateInventory(); 
         }
 
         public bool GenerateInventory()
         {
-            foreach (BuildingDataclass building in buildings)
+            for (int i = 0; i < buildings.Length; i++)
             {
-                inventory.inInventory.Add(building);
+                //buildingInfo[i] = buildings[i].building.GetComponent<Building>();
+                Debug.Log(i);
+                inventory.inInventory.Add(buildings[i]);
             }
             return true;
         }

@@ -233,18 +233,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildings:
-  - building: {fileID: 1992529696500576, guid: 30c066c888bfde448914823752ab6141, type: 2}
-    maxOwnership: 5
-  - building: {fileID: 1523348156116120, guid: 497b21cda67292d4bbd4892940a361ad, type: 2}
-    maxOwnership: 5
-  - building: {fileID: 1633011685605304, guid: 856b3dd07a658a14f8698b391d5b9731, type: 2}
-    maxOwnership: 1
-  - building: {fileID: 1128397271394724, guid: e07c3b3ecd2b6bb47bfbe500a74c4ea3, type: 2}
-    maxOwnership: 1
-  - building: {fileID: 1509506683643170, guid: 0e5bc9d5bbadb3a42b42c28dcb3cdaa2, type: 2}
-    maxOwnership: 1
-  - building: {fileID: 1953276091352040, guid: 2be67099ab149a648ab655b85f7b0fda, type: 2}
-    maxOwnership: 1
+  - {fileID: 114003706734650344, guid: 30c066c888bfde448914823752ab6141, type: 2}
+  - {fileID: 114623953067591036, guid: 497b21cda67292d4bbd4892940a361ad, type: 2}
+  - {fileID: 114505490191507296, guid: 856b3dd07a658a14f8698b391d5b9731, type: 2}
+  - {fileID: 114521721855379636, guid: e07c3b3ecd2b6bb47bfbe500a74c4ea3, type: 2}
+  - {fileID: 114156470015970948, guid: 2be67099ab149a648ab655b85f7b0fda, type: 2}
   inventory: {fileID: 1839197216}
 --- !u!1 &528196056
 GameObject:

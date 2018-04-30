@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4724690768484250}
   - component: {fileID: 114373471144376658}
+  - component: {fileID: 114623953067591036}
   m_Layer: 0
   m_Name: Common_VideoGameStore
   m_TagString: Untagged
@@ -146,5 +147,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea84d71ce598e6c409ba21f9dd965194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114623953067591036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1523348156116120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9665b69697fac4f9dade41ec5865bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 0}
+  maxOwnership: 5
   inventoryImage: {fileID: 0}
-  buildingType: 0
+  buildingType: 1
