@@ -9,6 +9,7 @@ namespace Builder
     {
         public Vector3 location;
         public GameObject tile;
-        public GameObject building; 
+        public GameObject building;
+        public bool tileInUse;
     }
 }

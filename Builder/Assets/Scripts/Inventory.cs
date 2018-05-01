@@ -70,8 +70,7 @@ namespace Builder
                 if (datacheck.uiImage == image && datacheck.numberPermitted >0)
                 {
                     datacheck.numberPermitted--;
-                    m_BuildingGridIntMan.PutOnMap(datacheck.building);
-                    
+                    StartCoroutine(m_BuildingGridIntMan.PutOnMap(datacheck.building));  
                 }
             }
         }

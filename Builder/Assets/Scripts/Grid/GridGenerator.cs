@@ -54,11 +54,13 @@ namespace Builder
                     GridCellManager gsm = new GridCellManager();
                     gsm.location = new Vector3(point.x - (gridSize / 2) + planeOffset, 0, point.z - (gridSize / 2) + planeOffset);
                     gsm.tile = go;
+                    gsm.tileInUse = false;
                     go.name = "Tile " + x + ", z" + z;
                     gridcellArray.Add(gsm);
                 }
             }
-            gridParent.transform.position = new Vector3(-(gridSize /2) + planeOffset, 0, -(gridSize/ 2) + planeOffset);
+            
+gridParent.transform.position = new Vector3(-(gridSize /2) + planeOffset, 0, -(gridSize/ 2) + planeOffset);
             #region list locations of tiles
             //foreach (GridCellManager gsm in gridcellArray)
             //{

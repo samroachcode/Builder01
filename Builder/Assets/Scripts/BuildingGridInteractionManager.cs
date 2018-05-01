@@ -6,14 +6,26 @@ namespace Builder
 {
     public class BuildingGridInteractionManager : MonoBehaviour
     {
-        [SerializeField] private GridGenerator m_GridGenerator; 
+        [SerializeField] private GridGenerator m_GridGenerator;
+        private GridCellManager currentCell;
+
+        private ArrayList availableCells = new ArrayList();
+        private ArrayList unavailableCells = new ArrayList();
+
+        private void Start()
+        {
+            foreach (GridCellManager gsm in m_GridGenerator.gridcellArray)
+            {
+                if (gsm.building == null && !gsm.tileInUse)
+                {
+                    availableCells.Add(gsm);
+                }
+            }
+        }
 
         public void Drag(GameObject buildingSelected, Vector3 position)
         {
             Vector3 inputWorldPos = Camera.main.ScreenToWorldPoint(new Vector3(position.x, position.y, 29));
-            //Mesh mesh = buildingSelected.GetComponent<MeshFilter>().mesh;
-            //inputWorldPos = new Vector3(inputWorldPos.x - (mesh.bounds.size.x), inputWorldPos.y, inputWorldPos.z - (mesh.bounds.size.z));
-            //Vector3 newPosition = ClosestTile(inputWorldPos);
             buildingSelected.transform.position = ClosestTile(inputWorldPos); 
         }
 
@@ -21,34 +33,52 @@ namespace Builder
         {
             Vector3 closest = currentpos;
             float closestDistSqr = Mathf.Infinity;
-            foreach (GridCellManager gsm in m_GridGenerator.gridcellArray)
+            //foreach (GridCellManager gsm in m_GridGenerator.gridcellArray)
+            //{
+            //    if (gsm.building == null && !gsm.tileInUse)
+            //    {
+            //        Vector3 directionToTarget = gsm.location - currentpos;
+            //        float distSqrToTarget = directionToTarget.sqrMagnitude;
+            //        if (distSqrToTarget < closestDistSqr)
+            //        {
+            //            closestDistSqr = distSqrToTarget;
+            //            closest = gsm.location;
+            //            currentCell = gsm; 
+            //        }
+            //    }
+            //}
+            foreach (GridCellManager gsm in availableCells)
             {
-                if (gsm.building == null)
+                Vector3 directionToTarget = gsm.location - currentpos;
+                float distSqrToTarget = directionToTarget.sqrMagnitude;
+                if (distSqrToTarget < closestDistSqr)
                 {
-                    Vector3 directionToTarget = gsm.location - currentpos;
-                    float distSqrToTarget = directionToTarget.sqrMagnitude;
-                    if (distSqrToTarget < closestDistSqr)
-                    {
-                        closestDistSqr = distSqrToTarget;
-                        closest = gsm.location;
-                    }
+                    closestDistSqr = distSqrToTarget;
+                    closest = gsm.location;
+                    currentCell = gsm;
                 }
             }
             return closest;
         }
 
-        public void PutOnMap(GameObject buildingSelected)
+        public IEnumerator PutOnMap(GameObject buildingSelected)
         {
-            Instantiate(buildingSelected);
-            buildingSelected.transform.position = ClosestTile(new Vector3 (0,0,0));
-            foreach (GridCellManager gsm in m_GridGenerator.gridcellArray)
-            {
-                if (buildingSelected.transform.position == gsm.location)
-                {
-                    gsm.building = buildingSelected;
-                    buildingSelected.GetComponent<BuildingDataclass>().onMap = true; 
-                }
-            }
+
+            availableCells.Remove(currentCell);
+            unavailableCells.Add(currentCell);
+            
+                
+            buildingSelected.transform.position = ClosestTile(new Vector3(0, 0, 0));
+            currentCell.building = buildingSelected;
+            Instantiate(buildingSelected, currentCell.location, Quaternion.identity);
+            currentCell.tileInUse = true; 
+            buildingSelected.GetComponent<BuildingDataclass>().onMap = true;
+            yield return null; 
         }
+
+        //public void PutOnMap(GameObject buildingSelected)
+        //{
+
+        //}
     }
 }
