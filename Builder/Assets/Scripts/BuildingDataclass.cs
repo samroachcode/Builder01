@@ -9,13 +9,10 @@ namespace Builder
     [System.Serializable]
     public class BuildingDataclass: MonoBehaviour
     {
-        public GameObject building;
-        public int maxOwnership;
         //public int level;
         //public float cost; 
         //public GameObject buildingObject;
-        public Image inventoryImage;
         public BuildingType buildingType;
-        private bool onMap;
+        public bool onMap;
     }
 }

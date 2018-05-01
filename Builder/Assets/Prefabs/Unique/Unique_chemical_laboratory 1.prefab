@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 4938794600685380}
   m_Layer: 0
   m_Name: Unique_chemical_laboratory 1
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,5 +145,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea84d71ce598e6c409ba21f9dd965194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryImage: {fileID: 0}
-  buildingType: 0

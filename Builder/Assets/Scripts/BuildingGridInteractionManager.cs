@@ -36,5 +36,19 @@ namespace Builder
             }
             return closest;
         }
+
+        public void PutOnMap(GameObject buildingSelected)
+        {
+            Instantiate(buildingSelected);
+            buildingSelected.transform.position = ClosestTile(new Vector3 (0,0,0));
+            foreach (GridCellManager gsm in m_GridGenerator.gridcellArray)
+            {
+                if (buildingSelected.transform.position == gsm.location)
+                {
+                    gsm.building = buildingSelected;
+                    buildingSelected.GetComponent<BuildingDataclass>().onMap = true; 
+                }
+            }
+        }
     }
 }

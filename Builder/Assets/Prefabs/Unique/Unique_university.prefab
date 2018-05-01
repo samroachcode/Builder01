@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23695657204612122}
   - component: {fileID: 95771135473281118}
   - component: {fileID: 114767522920570780}
+  - component: {fileID: 64617732444283552}
   m_Layer: 0
   m_Name: Unique_university
   m_TagString: Untagged
@@ -41,7 +42,7 @@ GameObject:
   - component: {fileID: 114156470015970948}
   m_Layer: 0
   m_Name: Unique_university
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,6 +120,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008195425978646}
   m_Mesh: {fileID: 4300000, guid: a75e0be201ab4934c8e02d63c6d26af6, type: 3}
+--- !u!64 &64617732444283552
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1008195425978646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: a75e0be201ab4934c8e02d63c6d26af6, type: 3}
 --- !u!95 &95771135473281118
 Animator:
   serializedVersion: 3
@@ -147,9 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9665b69697fac4f9dade41ec5865bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: 1953276091352040}
-  maxOwnership: 1
-  inventoryImage: {fileID: 0}
   buildingType: 0
 --- !u!114 &114767522920570780
 MonoBehaviour:

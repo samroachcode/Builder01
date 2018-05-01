@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23452715743805644}
   - component: {fileID: 95082388141518112}
   - component: {fileID: 114040005903738396}
+  - component: {fileID: 64636593063111470}
   m_Layer: 0
   m_Name: Unique_appliances_factory
   m_TagString: Untagged
@@ -41,7 +42,7 @@ GameObject:
   - component: {fileID: 114505490191507296}
   m_Layer: 0
   m_Name: Unique_Applicance_Factory
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,6 +120,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1538502629060078}
   m_Mesh: {fileID: 4300000, guid: 7cdad2bc38dcf7e46a9570c197ec44e6, type: 3}
+--- !u!64 &64636593063111470
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1538502629060078}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 7cdad2bc38dcf7e46a9570c197ec44e6, type: 3}
 --- !u!95 &95082388141518112
 Animator:
   serializedVersion: 3
@@ -158,7 +173,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9665b69697fac4f9dade41ec5865bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: 1633011685605304}
-  maxOwnership: 1
-  inventoryImage: {fileID: 0}
   buildingType: 0

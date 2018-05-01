@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33684417435440048}
   - component: {fileID: 23399552238181672}
   - component: {fileID: 95353742746407702}
+  - component: {fileID: 64809111132235282}
   m_Layer: 0
   m_Name: appliances_store
   m_TagString: Untagged
@@ -41,7 +42,7 @@ GameObject:
   - component: {fileID: 114003706734650344}
   m_Layer: 0
   m_Name: Common_ApplianceStore
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1992529696500576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 26.325636, y: 86.57031, z: -0.49154466}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4605723931076420}
@@ -117,6 +118,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775392082608258}
   m_Mesh: {fileID: 4300000, guid: e0828b8951ddb5742b21325602b044b8, type: 3}
+--- !u!64 &64809111132235282
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1775392082608258}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: e0828b8951ddb5742b21325602b044b8, type: 3}
 --- !u!95 &95353742746407702
 Animator:
   serializedVersion: 3
@@ -145,9 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9665b69697fac4f9dade41ec5865bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: 1992529696500576}
-  maxOwnership: 5
-  inventoryImage: {fileID: 0}
   buildingType: 1
 --- !u!114 &114611867103294396
 MonoBehaviour:
