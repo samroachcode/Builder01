@@ -18,14 +18,12 @@ namespace Builder
         private bool userInput;
         private float inputTimer;
         private GameObject buildingSelected;
-        private GameObject buildingCanvas;
 
         private void Awake()
         {
             buildingSelected = null; 
             userInput = false;
             inputTimer = 0;
-            buildingCanvas = null; 
         }
 
         private void Update() 
@@ -56,7 +54,7 @@ namespace Builder
             }
             if (userInput && buildingSelected != null && inputTimer >= tapDuration)
             {
-                m_BuildingGridInteractionManager.Drag(buildingSelected, Input.mousePosition);
+                Drag();
             }
             if (!Input.GetMouseButton(0) && !ResetInput())
                 ResetInput(); 
@@ -86,6 +84,11 @@ namespace Builder
             //    buildingCanvas.enabled = true;
             //else
             //    buildingCanvas.enabled = false;
+        }
+
+        private void Drag()
+        {
+            m_BuildingGridInteractionManager.Drag(buildingSelected, Input.mousePosition);
         }
 
         private bool ResetInput()

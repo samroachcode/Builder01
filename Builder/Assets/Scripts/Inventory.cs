@@ -26,6 +26,7 @@ namespace Builder
     {
 
         [SerializeField] private BuildingGridInteractionManager m_BuildingGridIntMan;
+
         public InventoryData[] data; 
 
         private void Awake()

@@ -18,6 +18,6 @@ namespace Builder
         //public float cost; 
         //public GameObject buildingObject;
         public BuildingType buildingType;
-        public bool onMap;
+        public bool onMap = false;
     }
 }

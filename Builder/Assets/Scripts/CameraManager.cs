@@ -12,6 +12,7 @@ namespace Builder
     {
         public GameObject anObject;
         public Collider anObjCollider;
+
         private Camera cam;
         private Plane[] planes;
 
