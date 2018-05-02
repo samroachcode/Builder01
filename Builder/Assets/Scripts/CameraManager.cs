@@ -5,6 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Dynamically scale the camera size to fit the grid size as this can be set in the inspector
 /// </summary>
+
 namespace Builder
 {
     public class CameraManager : MonoBehaviour

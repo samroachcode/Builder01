@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// The inventory generates all buildings allowed within the game. 
+/// The objects can be built onto the map through selecting the relevent UI button. 
+/// The objects are handed off to the buildinggridinteractionmanager for placement in the nearest available slot,
+/// and removed from the inventory.
+/// </summary>
+
+
 namespace Builder
 {
     [System.Serializable]
-    public class InventoryData
+    public class InventoryData // the inventory data class stores the properties of the obects within the inventory such as the max number the user is permitted to build. 
     {
         public GameObject building;
         public int numberPermitted;

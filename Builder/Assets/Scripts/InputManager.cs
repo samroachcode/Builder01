@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class manages user input and hands off to the buildinggridinteractionmanager which allows for the placement and movement of buildings. 
+/// The start of mobile input methods are commented in the "Touch inputs" region so that this can easily be extended. 
+/// </summary>
+
 namespace Builder
 {
     public class InputManager : MonoBehaviour
@@ -43,7 +48,7 @@ namespace Builder
             //    RaycastToBuildings(Input.GetTouch(1).position);
             //    userInput = true;
             //}
-            #endregion
+            #endregion // open for extention to mobile
             if (!Input.GetMouseButton(0) && userInput && inputTimer <= tapDuration)
             {
                 userInput = false;
