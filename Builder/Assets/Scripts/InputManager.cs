@@ -6,14 +6,15 @@ namespace Builder
 {
     public class InputManager : MonoBehaviour
     {
-        public float tapDurection = 0.1f;
+        public float tapDuration = 0.1f;
 
         [SerializeField] private BuildingGridInteractionManager m_BuildingGridInteractionManager; 
 
         private bool userInput;
-        private GameObject buildingSelected;
         private float inputTimer;
+        private GameObject buildingSelected;
         private GameObject buildingCanvas;
+
         private void Awake()
         {
             buildingSelected = null; 
@@ -43,12 +44,12 @@ namespace Builder
             //    userInput = true;
             //}
             #endregion
-            if (!Input.GetMouseButton(0) && userInput && inputTimer <= tapDurection)
+            if (!Input.GetMouseButton(0) && userInput && inputTimer <= tapDuration)
             {
                 userInput = false;
                 Tap();
             }
-            if (userInput && buildingSelected != null && inputTimer >= tapDurection)
+            if (userInput && buildingSelected != null && inputTimer >= tapDuration)
             {
                 m_BuildingGridInteractionManager.Drag(buildingSelected, Input.mousePosition);
             }

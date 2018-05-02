@@ -60,7 +60,7 @@ namespace Builder
                 }
             }
             
-gridParent.transform.position = new Vector3(-(gridSize /2) + planeOffset, 0, -(gridSize/ 2) + planeOffset);
+            gridParent.transform.position = new Vector3(-(gridSize /2) + planeOffset, 0, -(gridSize/ 2) + planeOffset);
             #region list locations of tiles
             //foreach (GridCellManager gsm in gridcellArray)
             //{
