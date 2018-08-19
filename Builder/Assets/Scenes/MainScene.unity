@@ -156,8 +156,10 @@ MonoBehaviour:
   gridSquare: {fileID: 1651155536887132, guid: 4544c972996f0f848960a74211b8ba86, type: 2}
   plane: {fileID: 528196056}
   gridParent: {fileID: 1407233536}
-  gridSize: 20
+  gridSize: 25
   planeOffset: 0.2
+  gridcellArray: []
+  gridGenerated: 0
 --- !u!1 &201030228
 GameObject:
   m_ObjectHideFlags: 0

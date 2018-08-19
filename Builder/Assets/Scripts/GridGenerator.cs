@@ -21,7 +21,9 @@ namespace Builder
         private float gridCountXY;
         private float gridSpacing;
         private bool gridGenerate;
-        public ArrayList gridcellArray = new ArrayList(); // it would be better if this was private or read only
+        public List<GridCellManager> gridcellArray;
+        public bool gridGenerated = false; 
+        //public ArrayList gridcellArray = new ArrayList(); // it would be better if this was private or read only
 
         public void Awake()
         {
@@ -30,6 +32,7 @@ namespace Builder
             if (!DrawGrid())
             {
                 DrawGrid();
+                
             }
         }
 
@@ -55,6 +58,9 @@ namespace Builder
                     gsm.location = new Vector3(point.x - (gridSize / 2) + planeOffset, 0, point.z - (gridSize / 2) + planeOffset);
                     gsm.tile = go;
                     gsm.tileInUse = false;
+                    int gsmTemp; 
+                    int.TryParse(x.ToString() + z.ToString(), out gsmTemp);//int.Parse(x.ToString() + z.ToString());
+                    gsm.ID = gsmTemp;
                     go.name = "Tile " + x + ", z" + z;
                     gridcellArray.Add(gsm);
                 }
@@ -67,6 +73,7 @@ namespace Builder
             //    Debug.Log(gsm.location + ": location " + gsm.tile.name + "tile");
             //}
             #endregion
+            gridGenerated = true;
             return (true);
         }
 

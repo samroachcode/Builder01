@@ -13,6 +13,7 @@ namespace Builder
     [System.Serializable]
     public class GridCellManager
     {
+        public int ID;
         public Vector3 location;
         public GameObject tile;
         public GameObject building;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// This class manages user input and hands off to the buildinggridinteractionmanager which allows for the placement and movement of buildings. 
@@ -13,17 +14,20 @@ namespace Builder
     {
         public float tapDuration = 0.1f;
 
-        [SerializeField] private BuildingGridInteractionManager m_BuildingGridInteractionManager; 
+        [SerializeField] private BuildingGridInteractionManager m_BuildingGridInteractionManager;
 
+        //UnityEvent _DragStart; 
+        private bool beginDrag;
         private bool userInput;
         private float inputTimer;
         private GameObject buildingSelected;
 
         private void Awake()
         {
-            buildingSelected = null; 
+            buildingSelected = null;
             userInput = false;
             inputTimer = 0;
+            //_DragStart.AddListener(DragStart);
         }
 
         private void Update() 
@@ -54,7 +58,12 @@ namespace Builder
             }
             if (userInput && buildingSelected != null && inputTimer >= tapDuration)
             {
-                Drag();
+                //if (_Drag != null)
+                //{
+                    Drag();
+                    
+                //    Debug.Log("Drag");
+                //}
             }
             if (!Input.GetMouseButton(0) && !ResetInput())
                 ResetInput(); 
@@ -76,28 +85,38 @@ namespace Builder
 
         private void Tap()
         {
-            //if (buildingSelected != null)
-            //{
-            //    buildingCanvas = buildingSelected.transform.Find("Canvas");
-            //}
-            //if (!buildingCanvas.enabled)
-            //    buildingCanvas.enabled = true;
-            //else
-            //    buildingCanvas.enabled = false;
         }
 
-        private void Drag()
+        private void Drag()//make this an event system 
         {
-            m_BuildingGridInteractionManager.Drag(buildingSelected, Input.mousePosition);
+            //m_BuildingGridInteractionManager.Drag(buildingSelected, Input.mousePosition);
+            if (!beginDrag)
+            {
+                m_BuildingGridInteractionManager.BeginDrag(buildingSelected);
+                Debug.Log("Begin Drag");
+                beginDrag = true; 
+            }
+            StartCoroutine(m_BuildingGridInteractionManager.Drag(buildingSelected, Input.mousePosition));
+        }
+
+        private void DragOff()
+        {
+            m_BuildingGridInteractionManager.DragOff(Input.mousePosition);
         }
 
         private bool ResetInput()
         {
+            if (beginDrag)
+            {
+                beginDrag = false;
+                DragOff(); 
+            }
             userInput = false;
             inputTimer = 0;
             buildingSelected = null;
             return true; 
         }
 
+        
     }
 }
