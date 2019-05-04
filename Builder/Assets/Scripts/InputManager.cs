@@ -16,7 +16,6 @@ namespace Builder
 
         [SerializeField] private BuildingGridInteractionManager m_BuildingGridInteractionManager;
 
-        //UnityEvent _DragStart; 
         private bool beginDrag;
         private bool userInput;
         private float inputTimer;
@@ -27,7 +26,6 @@ namespace Builder
             buildingSelected = null;
             userInput = false;
             inputTimer = 0;
-            //_DragStart.AddListener(DragStart);
         }
 
         private void Update() 
@@ -89,11 +87,9 @@ namespace Builder
 
         private void Drag()//make this an event system 
         {
-            //m_BuildingGridInteractionManager.Drag(buildingSelected, Input.mousePosition);
             if (!beginDrag)
             {
                 m_BuildingGridInteractionManager.BeginDrag(buildingSelected);
-                Debug.Log("Begin Drag");
                 beginDrag = true; 
             }
             StartCoroutine(m_BuildingGridInteractionManager.Drag(buildingSelected, Input.mousePosition));

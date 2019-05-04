@@ -19,6 +19,7 @@ namespace Builder
         private List<GridCellManager> totalCells;
         private GridCellManager currentSelection;
         private Vector3 currentLocation; 
+
         private void Start()
         {
             availableCells = new List<GridCellManager>();
@@ -100,16 +101,13 @@ namespace Builder
 
         public IEnumerator SetAvailable(GridCellManager gsm)
         {
-            Debug.Log(gsm.location);
             unavailableCells.Remove(gsm);
             availableCells.Add(gsm);
-            //availableCellsUpdating = false; 
             yield return null; 
         }
 
         public IEnumerator SetUnavailable(GridCellManager gsm)
         {
-            Debug.Log(gsm.location);
             availableCells.Remove(gsm);
             unavailableCells.Add(gsm);
             yield return null;
@@ -130,7 +128,6 @@ namespace Builder
                     StartCoroutine(SetUnavailable(gsm));
                     availableCells.Remove(gsm);
                     unavailableCells.Add(gsm);
-                    Debug.Log("set");
                 }
             }
             Instantiate(buildingSelected, currentCell.tile.transform.position, Quaternion.identity);
